@@ -78,19 +78,22 @@ $(document).ready(function () {
 
     clickMouseOver();
     // showHide();
-    fades();
-    
+    // fades();
+    // slides();
+    // toggleDiv();
+    animacja();
+
     // drugie rozwiązanie z .on, na .on można podpiąć kilka zdarzeń
 
     // zmiana koloru oi zmianie rozmiaru okna
-    $(window).resize(function(){
+    $(window).resize(function () {
         changeColor();
     });
-    
-    $(window).scroll(function() {
+
+    $(window).scroll(function () {
         changePosition();
     })
-    
+
     function clickMouseOver() {
         $('#eventy button').on({
             'click': function () {
@@ -98,7 +101,7 @@ $(document).ready(function () {
             },
 
             'mouseover': function () {
-               console.log('Jestem nad przyciskiem');
+                console.log('Jestem nad przyciskiem');
             }
         })
     }
@@ -112,33 +115,58 @@ function changePosition() {
     var parent = $('#main-nav');
     var wysokosc = $('#main-nav').height();
     // console.log(wysokosc);
-//    console.log($(window).scrollTop());
-    
+    //    console.log($(window).scrollTop());
+
     var offset = $(window).scrollTop();
-        
-        if (offset >= wysokosc) {
-            $(parent).css({
-                'position':'fixed',
-                'width':'100%'
-            })
-        } else {
-            $(parent).css('position', 'static');
-        }
+
+    if (offset >= wysokosc) {
+        $(parent).css({
+            'position': 'fixed',
+            'width': '100%'
+        })
+    } else {
+        $(parent).css('position', 'static');
     }
+}
 
 function showHide() {
     var parent = $('#showHide');
-    
+    // .show i .hide steruje wysokością, szerokości, opacity, marginesamji i paddingami -> w wyniku "display: none"
     $(parent).hide(5000).show(5000);
 }
 
 function fades() {
     var parent = $('#showHide');
-    
+    // steruje tylko opacity 
     $(parent).fadeOut(5000).fadeIn(5000);
+}
 
-    
+function slides() {
+    var parent = $('#showHide');
+    // steruje właściwościami takimi jak hide i show
+    $(parent).slideUp(5000).slideDown(5000);
+}
 
+// toggle
+function toggleDiv() {
+    var parent = $('#showHide');
+    // .toggle steruje wysokością, szerokości, opacity, marginesamji i paddingami -> w wyniku "display: none"
+    $(parent).click(function () {
+        $(this).find('h1').toggle(4000);
+    })
+}
+
+function animacja() {
+    var parent = $('#animacja');
+    $(parent).find('button').click(function () {
+        $(parent).find('#animowany').animate({
+            width: '100%'
+        }, 'slow', function () {
+            $(this).animate({
+                width: '200px'
+            }, 'slow')
+        });
+    })
 }
 
 

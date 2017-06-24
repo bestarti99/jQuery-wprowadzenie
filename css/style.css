@@ -33,3 +33,16 @@ p {
     height: 500px;
     width: 500px;
     background-color: bisque
+}
+
+#animacja {
+    height: 300px;
+    width: 500px;
+    background-color: aqua;
+}
+
+#animowany {
+    height: 80%;
+    width:  200px;
+    background-color: antiquewhite;
+}
