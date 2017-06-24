@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 #first    {
     width: 200px;
     height: 200px;
@@ -8,3 +14,22 @@
 p {
     font-size: 12px;
 }
+
+#main-nav {
+    height: 100px;
+    border: 1px solid black;
+    background-color: aqua;
+}
+
+#main-nav ul {
+    list-style-type: none;
+}
+
+#main-nav ul li {
+    display: inline-block;
+}
+
+#showHide {
+    height: 500px;
+    width: 500px;
+    background-color: bisque
